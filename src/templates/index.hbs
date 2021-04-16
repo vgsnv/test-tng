@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<title>
+		<%= htmlWebpackPlugin.options.title %>
+	</title>
+
+	<link rel="stylesheet" type="text/css"
+		href="/style.css?v=<%= htmlWebpackPlugin.options.version %>" />
+
+</head>
+
+<body>
+	<div id="root"></div>
+
+	<!-- Dependencies -->
+	<script src="/vendor.js?v=<%= htmlWebpackPlugin.options.version %>"
+		defer></script>
+
+	<!-- Main -->
+	<script src="/app.js?v=<%= htmlWebpackPlugin.options.version %>"
+		defer></script>
+
+</body>
+
+</html>
