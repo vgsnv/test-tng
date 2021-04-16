@@ -11,3 +11,7 @@ export const Button = styled.div`
 		background-color: gray;
 	}
 `
+
+export const FormItem = styled.div`
+	margin: 20px 0;
+`
