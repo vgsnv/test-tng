@@ -22,11 +22,17 @@ export const http = async <T>(url: string, method: FETCH_METHODS, body: object, 
 		signal: signal,
 	})
 
-	const resJson = await res.json()
+	const contentType = res.headers.get('content-type')
 
 	if (!res.ok) {
-		throw new Error(res.statusText) //{ code: 'SERVER_ERROR', status: res.status, message: res.message, error: res.error, path: res.path }
+		throw new Error(res.statusText)
 	}
 
-	return resJson
+	let result = null
+
+	if (contentType === 'application/json') {
+		result = await res.json()
+	}
+
+	return result
 }

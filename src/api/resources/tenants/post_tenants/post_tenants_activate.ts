@@ -18,8 +18,7 @@ type UrlParams = {
 export const post_tenants_activate = (urlParams: UrlParams): Options => {
 	const { id, code } = urlParams
 	return {
-		url: `/tenants/${id}/activate?otp=${code}`,
+		url: `api/tenants/${id}/activate?otp=${code}`,
 		method: 'POST',
-		body: null,
 	}
 }
