@@ -1,3 +1,6 @@
+* * {
+	box-sizing: border-box;
+}
 .ghost-class {
 	background-color: "#ddd";
 }
