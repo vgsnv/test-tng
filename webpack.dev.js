@@ -40,7 +40,10 @@ const config = {
 		port: 3002,
 		historyApiFallback: true,
 		proxy: {
-			'/api/v1': 'http://localhost:8080',
+			'/api': {
+				target: 'http://localhost:8080',
+				pathRewrite: { '^/api': '' },
+			},
 		},
 	},
 }

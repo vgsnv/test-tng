@@ -8,9 +8,12 @@ export const Input = styled.input<{ valid: boolean }>`
 	border-color: ${(props) => (props.valid ? '#afbacc' : '#f25252')};
 
 	&:hover {
+		outline: none;
 		border-color: ${(props) => (props.valid ? '#0466c8' : '#f25252')}; // #0466c8;
 	}
 
 	&:focus {
+		outline: none;
+		border-color: ${(props) => (props.valid ? '#0466c8' : '#f25252')}; // #0466c8;
 	}
 `

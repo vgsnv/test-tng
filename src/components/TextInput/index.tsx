@@ -7,7 +7,6 @@ export const TextInput: FC<{
 	valid?: boolean
 	onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }> = ({ label, value, valid = true, onChange }) => {
-	console.log('valid', valid)
 	return (
 		<div
 			style={{
