@@ -1,6 +1,7 @@
 import { api } from 'api'
 import { PostTenantsFail, PostTenantsSuccess, post_tenants } from 'api/resources/tenants/post_tenants/post_tenants'
 import { TextInput } from 'components/TextInput'
+import { validateEmail } from 'helpers'
 import React, { FC, useState } from 'react'
 import { useHistory } from 'react-router'
 import {
@@ -12,19 +13,13 @@ import {
 	MainContentHeader,
 	MainContentSubHeader,
 	SubHeader,
+	Terms,
 } from './styledComponents'
 
-// import logo from '../../assets/logo.png'
 const logo = require('assets/logo.png')
 
 const isNotEmptyFiels = (value: string): boolean => {
 	return value.length > 0
-}
-
-const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-const validateEmail = (mail: string): boolean => {
-	return re.test(mail.toLowerCase())
 }
 
 export const Home: FC = () => {
@@ -159,6 +154,12 @@ export const Home: FC = () => {
 					<Button onClick={handleSubmit}>
 						<ButtonText>Confirm Registration</ButtonText>
 					</Button>
+
+					<Terms>
+						By continuing, you’re agreeing to our{' '}
+						<span style={{ color: '#0466C8' }}> Customer Terms of Service, Privacy Policy </span>
+						and <span style={{ color: '#0466C8' }}> Cookie Policy.</span>
+					</Terms>
 				</MainContent>
 			</div>
 		</div>

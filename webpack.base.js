@@ -42,6 +42,7 @@ module.exports = {
 			constants: path.resolve(__dirname, 'src/constants'),
 			config: path.resolve(__dirname, 'src/config'),
 			pages: path.resolve(__dirname, 'src/pages'),
+			helpers: path.resolve(__dirname, 'src/helpers'),
 		},
 
 		extensions: ['.ts', '.tsx', '.js', '.json'],

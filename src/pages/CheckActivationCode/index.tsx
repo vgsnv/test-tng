@@ -6,12 +6,15 @@ import {
 import { SmallInput } from 'components/SmallInput'
 import React, { FC, useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router'
+import { Description, Info, InfoWrap, MainContent, MainContentHeader, MainContentSubHeader } from './styledComponents'
+
+const defaultCells = ['', '', '', '', '', '']
 
 export const CheckActiovationCode: FC = () => {
 	const location = useLocation<{ id: string }>()
 	const history = useHistory()
 
-	const [cells, setCells] = useState(['', '', '', '', '', ''])
+	const [cells, setCells] = useState(defaultCells)
 	const id = location.state.id
 
 	useEffect(() => {
@@ -31,6 +34,8 @@ export const CheckActiovationCode: FC = () => {
 
 			history.push('/success')
 		} catch (error) {
+			setCells(defaultCells)
+
 			console.log('errrr', error)
 			alert('Неправильный статус')
 		}
@@ -41,8 +46,21 @@ export const CheckActiovationCode: FC = () => {
 	}
 
 	return (
-		<div>
+		<MainContent>
+			<MainContentHeader>Check your email for a code</MainContentHeader>
+			<MainContentSubHeader>
+				We’ve sent a 6-character code to juan.rodriguez@nh-hotels.com. The code expires shortly, so please enter it
+				soon.
+			</MainContentSubHeader>
 			<SmallInput cells={cells} onChangeCell={handleChangeCells} />
-		</div>
+
+			<Description>Can’t find your code? Check your spam folder!</Description>
+
+			<InfoWrap>
+				<Info>Terms of Service</Info>
+				<Info>Privacy Policy</Info>
+				<Info>Contact Us</Info>
+			</InfoWrap>
+		</MainContent>
 	)
 }

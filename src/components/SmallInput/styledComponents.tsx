@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
+import { FontPTMonoRegular } from 'constants/fonts'
+
 export const Wrapper = styled.div`
-	height: 60px;
-	width: 154px;
+	height: 94px;
+	width: 244px;
 	border: 1px solid #afbacc;
 	border-radius: 4px;
 	display: flex;
@@ -11,18 +13,33 @@ export const Wrapper = styled.div`
 `
 
 export const Divider = styled.div`
-	height: 60px;
+	height: 94px;
 	width: 1px;
 	background-color: #afbacc;
+`
+
+export const Line = styled.div`
+	background-color: #afbacc;
+	width: 14px;
+	height: 1px;
+	background-color: #afbacc;
+	margin: 0 14px;
 `
 
 export const Input = styled.input<{ valid: boolean }>`
 	font: 20px sans-serif;
 	outline: none;
-	width: 50px;
+	width: 80px;
 	border: none;
-	text-align: center;
 	border-radius: 4px;
+
+	color: #293347;
+	${FontPTMonoRegular};
+	font-size: 46px;
+	font-weight: bold;
+	letter-spacing: 0;
+	line-height: 63px;
+	text-align: center;
 
 	&:hover {
 		outline: none;

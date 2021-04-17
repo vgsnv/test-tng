@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useRef } from 'react'
-import { Divider, Input, Wrapper } from './styledComponents'
+import { Divider, Input, Line, Wrapper } from './styledComponents'
 
 const isNan = (val: string): boolean => {
 	return /^\d+$/.test(val)
@@ -12,8 +12,10 @@ export const SmallInput: FC<{
 	const refs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)]
 
 	useEffect(() => {
-		refs[0].current.focus()
-	}, [])
+		if (cells.every((x) => x.length === 0)) {
+			refs[0].current.focus()
+		}
+	}, [cells])
 
 	const handleKeyDown = (numElement: number, e: React.KeyboardEvent<HTMLInputElement>) => {
 		if (e.code !== 'Backspace') {
@@ -22,7 +24,7 @@ export const SmallInput: FC<{
 				if (numElement !== 5) refs[numElement + 1].current.focus()
 			}
 		} else {
-			onChangeCell('', numElement)
+			onChangeCell('', numElement - 1)
 			if (numElement !== 0) refs[numElement - 1].current.focus()
 		}
 	}
@@ -69,14 +71,7 @@ export const SmallInput: FC<{
 				/>
 			</Wrapper>
 
-			<div
-				style={{
-					height: 1,
-					width: 20,
-					background: 'gray',
-					margin: 16,
-				}}
-			/>
+			<Line />
 
 			<Wrapper>
 				<Input

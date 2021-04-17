@@ -81,3 +81,12 @@ export const ButtonText = styled.p`
 export const FormItem = styled.div`
 	margin: 6px 0;
 `
+
+export const Terms = styled.div`
+	margin-top: 34px;
+	color: #5c677d;
+	${FontPTMonoRegular};
+	font-size: 14px;
+	letter-spacing: 0;
+	line-height: 21px;
+`

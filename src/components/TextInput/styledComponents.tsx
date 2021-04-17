@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { FontPTMonoRegular } from 'constants/fonts'
 
-export const Label = styled.p`
+export const Label = styled.p<{ valid: boolean }>`
 	display: inline;
 	position: relative;
 	top: 6px;
@@ -12,7 +12,7 @@ export const Label = styled.p`
 	padding-left: 4px;
 	padding-right: 4px;
 
-	color: #656c7a;
+	color: ${(props) => (props.valid ? '#656c7a' : '#f25252')};
 	${FontPTMonoRegular}
 	font-size: 12px;
 	letter-spacing: 0;

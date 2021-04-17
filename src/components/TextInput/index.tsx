@@ -13,7 +13,7 @@ export const TextInput: FC<{
 				height: 60,
 			}}
 		>
-			{value.length > 0 && <Label>{label}</Label>}
+			{value.length > 0 && <Label valid={valid}>{label}</Label>}
 
 			{value.length === 0 && (
 				<div
