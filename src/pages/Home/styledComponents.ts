@@ -4,7 +4,7 @@ import { FontPTMonoRegular } from 'constants/fonts'
 
 export const Header = styled.p`
 	margin-left: 80px;
-	margin-top: 345px;
+	margin-top: 230px;
 	height: 27px;
 	width: 350px;
 	color: #ffffff;

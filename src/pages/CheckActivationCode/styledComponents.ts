@@ -46,6 +46,7 @@ export const Description = styled.div`
 
 export const InfoWrap = styled.div`
 	display: flex;
+	background-color: #fff;
 	flex-direction: row;
 	position: fixed;
 	bottom: 0;

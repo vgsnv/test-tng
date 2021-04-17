@@ -8,14 +8,16 @@ import React, { FC, useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router'
 import { Description, Info, InfoWrap, MainContent, MainContentHeader, MainContentSubHeader } from './styledComponents'
 
+const logo = require('assets/white-logo.png')
+
 const defaultCells = ['', '', '', '', '', '']
 
 export const CheckActiovationCode: FC = () => {
-	const location = useLocation<{ id: string }>()
+	const location = useLocation<{ id: string; email: string }>()
 	const history = useHistory()
 
 	const [cells, setCells] = useState(defaultCells)
-	const id = location.state.id
+	const { id, email } = location.state
 
 	useEffect(() => {
 		if (cells.every((x) => x.length > 0)) {
@@ -47,10 +49,17 @@ export const CheckActiovationCode: FC = () => {
 
 	return (
 		<MainContent>
+			<img
+				style={{
+					height: 40,
+					marginTop: 80,
+				}}
+				src={logo}
+			/>
 			<MainContentHeader>Check your email for a code</MainContentHeader>
 			<MainContentSubHeader>
-				We’ve sent a 6-character code to juan.rodriguez@nh-hotels.com. The code expires shortly, so please enter it
-				soon.
+				We’ve sent a 6-character code to <span style={{ fontWeight: 'bold' }}> {email}</span>. The code expires shortly,
+				so please enter it soon.
 			</MainContentSubHeader>
 			<SmallInput cells={cells} onChangeCell={handleChangeCells} />
 

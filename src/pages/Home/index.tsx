@@ -48,6 +48,7 @@ export const Home: FC = () => {
 			if ('id' in res) {
 				history.push('/check-activation-code', {
 					id: res.id,
+					email: email,
 				})
 			}
 		} catch (error) {
@@ -87,7 +88,14 @@ export const Home: FC = () => {
 					background: 'linear-gradient(180deg, #0466C8 0%, #023E7D 100%)',
 				}}
 			>
-				<img src={logo} />
+				<img
+					style={{
+						height: 35,
+						marginTop: 80,
+						marginLeft: 80,
+					}}
+					src={logo}
+				/>
 				<Header>Welcome to TNG4</Header>
 
 				<SubHeader>The solution for the hospitality industry.</SubHeader>

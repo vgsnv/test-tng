@@ -16,8 +16,13 @@ module.exports = {
 				include: [path.resolve(__dirname, 'src')],
 				exclude: [path.resolve(__dirname, 'node_modules')],
 			},
+
 			{
-				test: /\.(png|jpg|gif|svg|webm|eot|woff|ttf)$/i,
+				test: /\.png/,
+				type: 'asset/resource',
+			},
+			{
+				test: /\.(webm|eot|woff|ttf)$/i,
 				type: 'asset/resource',
 				use: [
 					{
