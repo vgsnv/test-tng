@@ -16,6 +16,6 @@
 		"baseUrl": "src",
 		"skipLibCheck": true
 	},
-	"include": ["src/**/*"],
+	"include": ["src/**/*", "index.d.ts"],
 	"exclude": ["node_modules", "node_modules/@types", "src/**/*.spec.ts", "src/**/*.spec.tsx"]
 }

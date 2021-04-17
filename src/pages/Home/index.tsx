@@ -3,7 +3,19 @@ import { PostTenantsFail, PostTenantsSuccess, post_tenants } from 'api/resources
 import { TextInput } from 'components/TextInput'
 import React, { FC, useState } from 'react'
 import { useHistory } from 'react-router'
-import { Button, FormItem } from './styledComponents'
+import {
+	Button,
+	ButtonText,
+	FormItem,
+	Header,
+	MainContent,
+	MainContentHeader,
+	MainContentSubHeader,
+	SubHeader,
+} from './styledComponents'
+
+// import logo from '../../assets/logo.png'
+const logo = require('assets/logo.png')
 
 const isNotEmptyFiels = (value: string): boolean => {
 	return value.length > 0
@@ -42,8 +54,6 @@ export const Home: FC = () => {
 				history.push('/check-activation-code', {
 					id: res.id,
 				})
-			} else {
-				console.log('hello', res.message)
 			}
 		} catch (error) {
 			alert(
@@ -60,7 +70,7 @@ export const Home: FC = () => {
 			isNotEmptyFiels(propName) &&
 			isNotEmptyFiels(firstName) &&
 			isNotEmptyFiels(lastName) &&
-			isNotEmptyFiels(email)
+			validateEmail(email)
 		) {
 			onSave()
 		}
@@ -69,55 +79,88 @@ export const Home: FC = () => {
 	return (
 		<div
 			style={{
-				margin: 20,
+				height: 900,
+				width: 1440,
+				display: 'flex',
+				justifyContent: 'row',
 			}}
 		>
-			<FormItem>
-				<TextInput
-					valid={isFirstRender || isNotEmptyFiels(orgName)}
-					label={'Organization Name'}
-					value={orgName}
-					onChange={(e) => setOrgName(e.target.value)}
-				/>
-			</FormItem>
+			<div
+				style={{
+					height: 900,
+					width: 530,
+					background: 'linear-gradient(180deg, #0466C8 0%, #023E7D 100%)',
+				}}
+			>
+				<img src={logo} />
+				<Header>Welcome to TNG4</Header>
 
-			<FormItem>
-				<TextInput
-					valid={isFirstRender || isNotEmptyFiels(propName)}
-					label={'Property Name'}
-					value={propName}
-					onChange={(e) => setPropName(e.target.value)}
-				/>
-			</FormItem>
+				<SubHeader>The solution for the hospitality industry.</SubHeader>
+			</div>
 
-			<FormItem>
-				<TextInput
-					valid={isFirstRender || isNotEmptyFiels(firstName)}
-					label={'Your First Name'}
-					value={firstName}
-					onChange={(e) => setFirstName(e.target.value)}
-				/>
-			</FormItem>
+			<div
+				style={{
+					width: 910,
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'center',
+				}}
+			>
+				<MainContent>
+					<MainContentHeader>
+						We are thrilled to welcome you as a new part of the HRS global community.
+					</MainContentHeader>
+					<MainContentSubHeader>Please get started by completing the registration form below.</MainContentSubHeader>
+					<FormItem>
+						<TextInput
+							valid={isFirstRender || isNotEmptyFiels(orgName)}
+							label={'Organization Name'}
+							value={orgName}
+							onChange={(e) => setOrgName(e.target.value)}
+						/>
+					</FormItem>
 
-			<FormItem>
-				<TextInput
-					valid={isFirstRender || isNotEmptyFiels(lastName)}
-					label={'Your Last Name'}
-					value={lastName}
-					onChange={(e) => setLastName(e.target.value)}
-				/>
-			</FormItem>
+					<FormItem>
+						<TextInput
+							valid={isFirstRender || isNotEmptyFiels(propName)}
+							label={'Property Name'}
+							value={propName}
+							onChange={(e) => setPropName(e.target.value)}
+						/>
+					</FormItem>
 
-			<FormItem>
-				<TextInput
-					valid={isFirstRender || validateEmail(email)}
-					label={'Your Email Name'}
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-				/>
-			</FormItem>
+					<FormItem>
+						<TextInput
+							valid={isFirstRender || isNotEmptyFiels(firstName)}
+							label={'Your First Name'}
+							value={firstName}
+							onChange={(e) => setFirstName(e.target.value)}
+						/>
+					</FormItem>
 
-			<Button onClick={handleSubmit}>Confirm Registration</Button>
+					<FormItem>
+						<TextInput
+							valid={isFirstRender || isNotEmptyFiels(lastName)}
+							label={'Your Last Name'}
+							value={lastName}
+							onChange={(e) => setLastName(e.target.value)}
+						/>
+					</FormItem>
+
+					<FormItem>
+						<TextInput
+							valid={isFirstRender || validateEmail(email)}
+							label={'Your Email Name'}
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+					</FormItem>
+
+					<Button onClick={handleSubmit}>
+						<ButtonText>Confirm Registration</ButtonText>
+					</Button>
+				</MainContent>
+			</div>
 		</div>
 	)
 }

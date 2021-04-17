@@ -17,7 +17,8 @@ module.exports = {
 				exclude: [path.resolve(__dirname, 'node_modules')],
 			},
 			{
-				test: /\.(png|jpg)$/i,
+				test: /\.(png|jpg|gif|svg|webm|eot|woff|ttf)$/i,
+				type: 'asset/resource',
 				use: [
 					{
 						loader: 'file-loader',
@@ -25,7 +26,7 @@ module.exports = {
 							name: '[hash].[ext]',
 							outputPath: 'assets',
 							publicPath: '/assets/',
-							context: '',
+							// context: '',
 						},
 					},
 				],

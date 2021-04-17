@@ -1,11 +1,35 @@
 import styled from 'styled-components'
 
+import { FontPTMonoRegular } from 'constants/fonts'
+
+export const Label = styled.p`
+	display: inline;
+	position: relative;
+	top: 6px;
+	left: 8px;
+	margin: 0;
+	background: #fff;
+	padding-left: 4px;
+	padding-right: 4px;
+
+	color: #656c7a;
+	${FontPTMonoRegular}
+	font-size: 12px;
+	letter-spacing: 0;
+	line-height: 16px;
+`
 export const Input = styled.input<{ valid: boolean }>`
 	padding: 10px;
+	width: 100%;
 	border-radius: 4px;
-	font: 12px sans-serif;
 	border: 1px solid;
-	border-color: ${(props) => (props.valid ? '#afbacc' : '#f25252')};
+	border-color: ${(props) => (props.valid ? '#9098A7' : '#f25252')};
+
+	color: #293347;
+	${FontPTMonoRegular};
+	font-size: 14px;
+	letter-spacing: 0;
+	line-height: 20px;
 
 	&:hover {
 		outline: none;

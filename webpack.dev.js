@@ -1,6 +1,7 @@
 const path = require('path')
 const { merge } = require('webpack-merge')
 const buildPath = path.resolve(__dirname, 'public')
+const assetsPath = path.resolve(__dirname, 'assets')
 
 const plugins = require('./webpack/plugins')
 
@@ -35,7 +36,7 @@ const config = {
 	],
 
 	devServer: {
-		contentBase: './public',
+		contentBase: [buildPath, assetsPath],
 		compress: true,
 		port: 3002,
 		historyApiFallback: true,

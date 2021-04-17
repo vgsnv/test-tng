@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import { Divider, Input, Wrapper } from './styledComponents'
 
 const isNan = (val: string): boolean => {
@@ -10,6 +10,10 @@ export const SmallInput: FC<{
 	onChangeCell: (newVal: string, i: number) => void
 }> = ({ cells, onChangeCell }) => {
 	const refs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)]
+
+	useEffect(() => {
+		refs[0].current.focus()
+	}, [])
 
 	const handleKeyDown = (numElement: number, e: React.KeyboardEvent<HTMLInputElement>) => {
 		if (e.code !== 'Backspace') {

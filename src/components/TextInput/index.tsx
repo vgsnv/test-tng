@@ -1,5 +1,5 @@
 import React, { FC, ChangeEvent } from 'react'
-import { Input } from './styledComponents'
+import { Input, Label } from './styledComponents'
 
 export const TextInput: FC<{
 	label: string
@@ -13,29 +13,14 @@ export const TextInput: FC<{
 				height: 60,
 			}}
 		>
-			{value.length > 0 && (
-				<p
-					style={{
-						position: 'relative',
-						top: 6,
-						left: 8,
-						fontSize: 10,
-						margin: 0,
-						background: '#fff',
-						paddingLeft: 4,
-						paddingRight: 4,
-					}}
-				>
-					{label}
-				</p>
-			)}
+			{value.length > 0 && <Label>{label}</Label>}
 
 			{value.length === 0 && (
 				<div
 					style={{
 						position: 'relative',
 						top: 0,
-						height: 11,
+						height: 18,
 					}}
 				/>
 			)}
